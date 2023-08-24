@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text: #161e2e;
+    --accent: #6366f1;
+  }
+
+  html,
+  body {
+    color: var(--text);
+  }
+
+  main {
+    @apply h-full flex justify-center items-center;
+  }
+
+  h1 {
+    @apply font-extrabold text-3xl sm:text-6xl;
+  }
+
+  h2 {
+    @apply font-bold text-2xl sm:text-3xl;
+  }
+
+  code {
+    counter-reset: line;
+  }
+
+  .code-line {
+    counter-increment: line;
+    position: relative;
+    display: block;
+    margin-left: 1.5rem;
+  }
+
+  .code-line:before {
+    content: counter(line);
+    position: absolute;
+    margin-left: -1.5rem;
+  }
+
+  .menu-item {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+  }
+
+  .menu-item:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--accent);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .menu-item:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  .menu-item,
+  .active :after {
+    width: 100%;
+    left: 0;
+  }
+
+  .h-screen-dev {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+}
